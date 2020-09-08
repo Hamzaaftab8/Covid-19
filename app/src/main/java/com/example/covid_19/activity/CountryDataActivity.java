@@ -34,7 +34,7 @@ public class CountryDataActivity extends AppCompatActivity implements ItemClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country_data);
 
-
+        bind();
 
         setUpRecyclerView();
 
