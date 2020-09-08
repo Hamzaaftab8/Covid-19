@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/main_screen"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageButton
+            android:id="@+id/ib_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_baseline_menu_24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_covid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="COVID-19"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp"
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_menu"
+            app:layout_constraintLeft_toRightOf="@+id/ib_menu"
+            app:layout_constraintRight_toLeftOf="@+id/rl_countries"
+            app:layout_constraintTop_toTopOf="@+id/ib_menu" />
+
+        <RelativeLayout
+            android:id="@+id/rl_countries"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/countries_image_background"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_covid"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_covid">
+
+            <ImageView
+                android:id="@+id/ib_countries"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/colorRed"
+                android:background="@drawable/ic_baseline_photo_size_select_actual_24"
+                android:scaleType="fitXY"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:paddingTop="20dp"
+            app:egInnerPaddingColor="@color/colorMidBlue"
+            app:egLegendTextSize="0dp"
+            app:egUsePieRotation="true"
+            app:egValueTextSize="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ib_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background_corners_cardview"
+        android:elevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline">
+
+        <TextView
+            android:id="@+id/tv_country_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="GLOBAL STATS"
+            android:textColor="@color/colorGrey"
+            android:textSize="22sp"
+            app:autoSizeMaxTextSize="22sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_total_cases"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Total Cases"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_total_cases"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_cases" />
+
+        <TextView
+            android:id="@+id/tv_total_cases"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="1,000,202"
+            android:textColor="@color/colorYellow"
+            android:textColorHint="@color/colorYellow"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_active_cases"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_country_name"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Active Cases"
+            android:textColor="@color/colorBLack"
+            android:textSize="20dp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_active_cases"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/tv_active_cases" />
+
+        <TextView
+            android:id="@+id/tv_active_cases"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="50,000"
+            android:textColor="@color/colorMidBlue"
+            android:textColorHint="@color/colorMidBlue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_total_deaths"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_cases"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Deaths"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_total_deaths"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_deaths" />
+
+        <TextView
+            android:id="@+id/tv_total_deaths"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="20,000"
+            android:textColor="@color/colorRed"
+            android:textColorHint="@color/colorRed"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_recovered"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_active_cases"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Recovered"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_recovered"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/tv_recovered" />
+
+        <TextView
+            android:id="@+id/tv_recovered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="30,444"
+            android:textColor="@color/colorGreen"
+            android:textColorHint="@color/colorGreen"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_today_cases"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_deaths"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Today Cases"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/tv_today_cases"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tv_today_cases" />
+
+        <TextView
+            android:id="@+id/tv_today_cases"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="1,000,202"
+            android:textColor="@color/colorYellow"
+            android:textColorHint="@color/colorYellow"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_today_deaths"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_recovered"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Today Deaths"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/tv_today_deaths"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tv_today_deaths" />
+
+        <TextView
+            android:id="@+id/tv_today_deaths"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="50,000"
+            android:textColor="@color/colorRed"
+            android:textColorHint="@color/colorRed"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_today_recovered"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today_cases"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:text="Today Recovered"
+            android:paddingLeft="20dp"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/tv_today_recovered"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tv_today_recovered" />
+
+        <TextView
+            android:id="@+id/tv_today_recovered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="20,000"
+            android:textColor="@color/colorGreen"
+            android:textColorHint="@color/colorGreen"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_critical"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today_deaths"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Critical"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/tv_critical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tv_critical" />
+
+        <TextView
+            android:id="@+id/tv_critical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="30,444"
+            android:textColor="@color/colorRed"
+            android:textColorHint="@color/colorRed"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/tv_total_tests"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today_recovered"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="Total Tests"
+            android:textColor="@color/colorBLack"
+            android:textSize="20sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/tv_total_tests"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tv_total_tests"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_total_tests"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_horizontal"
+            android:hint="30,444"
+            android:textColor="@color/colorYellow"
+            android:textColorHint="@color/colorYellow"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_critical"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
